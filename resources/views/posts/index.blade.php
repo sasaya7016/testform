@@ -11,6 +11,17 @@
 
 <body>
 新規登録
+
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
 <form method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
   @csrf
   <div class="form-content">
