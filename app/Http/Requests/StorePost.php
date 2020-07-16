@@ -26,7 +26,7 @@ class StorePost extends FormRequest
         return [
             'lastname' => 'required|string|max:20',
             'firstname' => 'required|string|max:20',
-            'email' => 'required|email|unique:users|max:100',
+            'email' => 'required|email|unique:posts|max:100',
             'text' => 'string|max:200',
         ];
     }
