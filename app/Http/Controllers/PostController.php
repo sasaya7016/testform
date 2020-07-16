@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -13,7 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        $posts = DB::table('posts')
+        ->select('id', 'lastname', 'firstname','text', 'email')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -34,7 +41,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;
+        $post->lastname= $request->input('lastname');
+        $post->firstname= $request->input('firstname');
+        $post->email= $request->input('email');
+        $post->text= $request->input('text');
+        $post->save();
+
+        return redirect('posts/index');
     }
 
     /**
