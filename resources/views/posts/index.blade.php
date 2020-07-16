@@ -50,10 +50,10 @@
   @foreach($posts as $post)
   <tr>
   <th>{{$post->id}}</th>
-  <td>lastname</td>
-  <td>firstname</td>
-  <td>email</td>
-  <td>text</td>
+  <td>{{$post->lastname}}</td>
+  <td>{{$post->firstname}}</td>
+  <td>{{$post->email}}</td>
+  <td>{{$post->text}}</td>
   </tr>
   @endforeach
 </tbody>
