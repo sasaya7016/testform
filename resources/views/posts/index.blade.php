@@ -13,7 +13,7 @@
 
   <body>
   <div class="container">
-    <h4 class="text-center font-weight-bold">新規登録</h4>
+    <h4 class="text-center font-weight-bold">フォーム</h4>
     <br>
 
     @if ($errors->any())
@@ -28,44 +28,50 @@
 
     <form method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
       @csrf
-      <div class="form-group text-center font-weight-bold">
-        <label>苗字</label>
-        <p class="badge badge-danger">必須</p>
-        <div class="col-sm-12">
-          <input class="form-control" name="lastname" placeholder="苗字">
+      <div class="card text-center">
+        <div class="card-header">
+          新規登録
         </div>
-      </div>
-      <div class="form-group text-center font-weight-bold">
-        <label>名前</label>
-        <p class="badge badge-danger">必須</p>
-        <div class="col-sm-12">
-          <input class="form-control" name="firstname" placeholder="名前">
-        </div>
-      </div>
+        <div class="card-body">
 
-      <div class="form-group text-center font-weight-bold">
-        <label>メールアドレス</label>
-        <p class="badge badge-danger">必須</p>
-        <div class="col-sm-12">
-          <input class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-      </div>
+          <div class="form-group text-center font-weight-bold">
+            <label>氏名</label>
+            <p class="badge badge-danger">必須</p>
+            <div class="form-row">
+              <div class="col">
+                <input class="form-control" name="lastname" placeholder="苗字">
+              </div>
+              <div class="col">
+                <input class="form-control" name="firstname" placeholder="名前">
+              </div>
+            </div>
+          </div>
 
-      <div class="form-group text-center font-weight-bold">
-        <label>コメント</label>
-        <p class="badge badge-success">任意</p>
-        <div class="col-sm-12">
-          <textarea class="form-control" name="text" placeholder=""></textarea>
-        </div>
-      </div>
+          <div class="form-group text-center font-weight-bold">
+            <label>メールアドレス</label>
+            <p class="badge badge-danger">必須</p>
+            <div class="col">
+              <input class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+          </div>
 
-      <div class="col-sm-12 text-center ">
-        <button type="submit" class="btn btn-info">送信</button>
+          <div class="form-group text-center font-weight-bold">
+            <label>コメント</label>
+            <p class="badge badge-success">任意</p>
+            <div class="col">
+              <textarea class="form-control" name="text" placeholder=""></textarea>
+            </div>
+          </div>
+
+          <div class="col text-center ">
+            <button type="submit" class="btn btn-info btn-lg btn-block">送信</button>
+          </div>
+        </div>
       </div>
     </form>
-    <br>
+    <br><hr><br>
 
-    <h4>表示
+    <h4 class="text-center">表示
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         CSV
       </button>
@@ -76,7 +82,7 @@
     </h4>
 
     <table class="table table-bordered table-sm">
-      <thead class="thead-dark">
+      <thead class="thead-dark text-center">
         <tr>
           <th scope="col">id</th>
           <th scope="col">苗字</th>
@@ -88,12 +94,12 @@
       <tbody>
         @foreach($posts as $post)
         <tr>
-          <th scope="row">{{$post->id}}</th>
+          <th class="text-center">{{$post->id}}</th>
           <td class="row-2 text-truncate">{{$post->lastname}}</td>
           <td class="row-2 text-truncate">{{$post->firstname}}</td>
           <td class="row-3 text-truncate">{{$post->email}}</td>
           <td class="row-3 text-truncate">{{$post->text}}</td>
-          <td class="row-2 text-truncate">
+          <td class="row-2 text-truncate text-center">
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Action
             </button>

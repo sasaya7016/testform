@@ -27,7 +27,7 @@ class StorePost extends FormRequest
             'lastname' => 'required|string|max:20|regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んー一-龠]+$/u',
             'firstname' => 'required|string|max:20|regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んー一-龠]+$/u',
             'email' => 'required|email|unique:posts|max:100',
-            'text' => 'string|max:200',
+            'text' => 'max:200',
         ];
     }
 }
