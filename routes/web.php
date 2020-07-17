@@ -20,4 +20,5 @@ Route::get('/', 'PostController@index');
 Route::group(['prefix' => 'posts'], function(){
   Route::get('index', 'PostController@index')->name('posts.index');
   Route::post('store', 'PostController@store')->name('posts.store');
+  Route::post('destroy/{id}', 'PostController@destroy')->name('posts.destroy');
 });
