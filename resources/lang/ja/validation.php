@@ -67,7 +67,7 @@ return [
     'not_in'               => '選択された:attributeは正しくありません。',
     'numeric'              => ':attributeには、数字を指定してください。',
     'present'              => ':attributeが存在していません。',
-    'regex'                => ':attributeに正しい形式を指定してください。',
+    'regex'                => ':attributeにカナ入力、記号、スペースは使用できません。',
     'required'             => ':attributeは必ず指定してください。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
@@ -116,6 +116,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'lastname'=>'苗字',
+      'firstname'=>'名前',
+      'email'=>'メールアドレス',
+      'text'=>'コメント',
+
+    ],
 
 ];

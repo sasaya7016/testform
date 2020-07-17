@@ -24,8 +24,8 @@ class StorePost extends FormRequest
     public function rules()
     {
         return [
-            'lastname' => 'required|string|max:20',
-            'firstname' => 'required|string|max:20',
+            'lastname' => 'required|string|max:20|regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んー一-龠]+$/u',
+            'firstname' => 'required|string|max:20|regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んー一-龠]+$/u',
             'email' => 'required|email|unique:posts|max:100',
             'text' => 'string|max:200',
         ];
