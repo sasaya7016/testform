@@ -60,7 +60,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.show',compact('post'));
     }
 
     /**
@@ -71,7 +73,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -83,7 +87,14 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->lastname= $request->input('lastname');
+        $post->firstname= $request->input('firstname');
+        $post->email= $request->input('email');
+        $post->text= $request->input('text');
+        $post->save();
+
+        return redirect('posts/index');
     }
 
     /**
