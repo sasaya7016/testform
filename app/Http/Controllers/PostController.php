@@ -10,6 +10,7 @@ use App\Http\Requests\StorePost;
 use League\Csv\Reader;
 use League\Csv\Statement;
 
+use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -123,7 +124,6 @@ class PostController extends Controller
         $records = $stmt->process($csv);
         $data = [];
 
-
         foreach ($records as $record) {
             $record['created_at'] = now();
             $record['updated_at'] = now();
@@ -132,5 +132,24 @@ class PostController extends Controller
         $post->insert($data);
 
         return redirect()->route('posts.index');
+    }
+
+
+    public function exportCSV()
+    {
+        $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
+
+        $csv->insertOne(['id', '苗字', '名前', 'メールアドレス','コメント']);
+
+        Post::all()->each(function($post) use($csv) {
+            $csv->insertOne($post->toArray());
+        });
+
+        return new Response($csv->getContent(), 200, [
+            'Content-Encoding' => 'none',
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => 'attachment; filename="'.'testform.csv'.'"',
+            'Content-Description' => 'File Transfer',
+        ]);
     }
 }

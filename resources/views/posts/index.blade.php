@@ -3,7 +3,6 @@
 @section('content')
 @include('nav')
 
-
 <div class="container">
   <br><br><br>
 
@@ -102,13 +101,14 @@
   </table>
   <h5>CSV インポート</h5>
   {{ Form::open(['url' => route('posts.importCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
-
   <div class='form-group'>
     <input type="file" name="file" value="">
   </div>
-
   <button type="submit">Import</button>
-
   {{ Form::close() }}
-  
+
+  <h5>CSV エクスポート</h5>
+  {{ Form::open(['url' => route('posts.exportCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
+  <button type="submit">Export</button>
+  {{ Form::close() }}
 </div>
