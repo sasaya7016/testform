@@ -18,7 +18,8 @@ http://testform-s.herokuapp.com/ <br>
 
 インポートする場合<br>
 (例)インポートするCSVデータ:page_facing_up:<br>
-<img width="500" alt="testform-2" src="https://user-images.githubusercontent.com/61730661/87875007-2efbed00-ca09-11ea-99fa-45e8b878dde2.png"><br>
+<img width="431" alt="testform-2" src="https://user-images.githubusercontent.com/61730661/87886901-790dbe80-ca5b-11ea-9326-7f81e80e9d1c.png">
+
 お手数ですが、上記CSVファイルの内容でしたら、インポートすることができます。<br>
 全部消えましたら、保留にしていたCSVをインポートのファイルでセレクトして下さい。<br>
 その後、Inportのボタンを押して下さい。<br>
