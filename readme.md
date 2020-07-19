@@ -1,8 +1,12 @@
 # Test Form
 <img width="100%" alt="testform-1" src="https://user-images.githubusercontent.com/61730661/87874031-61a1e780-ca01-11ea-9a58-b6eed63fb903.png">
 
+(例)インポートするCSVデータ
+<img width="500" alt="testform-2" src="https://user-images.githubusercontent.com/61730661/87875007-2efbed00-ca09-11ea-99fa-45e8b878dde2.png">
+
+
 ## URL
-http://testform-s.herokuapp.com/
+http://testform-s.herokuapp.com/ <br>
 ※反映に少し時間がかかります。少々お待ちください。
 
 ## 使い方 
@@ -12,11 +16,7 @@ http://testform-s.herokuapp.com/
 まずは、フォームに入力した内容を「アクションボタン」の削除で全部消して下さい。<br>
 全部消えましたら、保留にしていたCSVをインポートのファイルでセレクトして下さい。<br>
 その後、Inportのボタンを押して下さい。<br>
-CSVのデータが反映されます。<br>
-
-<img width="500" alt="testform-2" src="https://user-images.githubusercontent.com/61730661/87875007-2efbed00-ca09-11ea-99fa-45e8b878dde2.png">
-
-
+CSVのデータが反映されます。
 
 ## 開発環境
 - PHP
