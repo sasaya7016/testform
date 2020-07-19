@@ -1,7 +1,7 @@
 # Test Form
 <img width="100%" alt="testform-1" src="https://user-images.githubusercontent.com/61730661/87874031-61a1e780-ca01-11ea-9a58-b6eed63fb903.png">
 
-(例)インポートするCSVデータ:page_facing_up:<br>
+(例1)インポートするCSVデータ:page_facing_up:<br>
 <img width="500" alt="testform-2" src="https://user-images.githubusercontent.com/61730661/87875007-2efbed00-ca09-11ea-99fa-45e8b878dde2.png">
 
 
@@ -21,7 +21,8 @@ http://testform-s.herokuapp.com/ <br>
 お手数ですが、出力されたデータは一旦そのままにして下さい。（※インポートの確認にも使用いたします。）<br>
 そして、フォームに入力した内容を「アクションボタン」の削除を押して、全投稿削除して下さい。※インポートの確認の際、同じデータが入っていないようにする為<br>
 ※その際、詳細確認、編集機能もご確認いただければ幸いです。<br>
-全部消えたことが確認できましたら、インポートボタンの上の「ファイルボタン」を押して、保留にしていたCSVをセレクトして下さい。<br>
+全部消えたことが確認できましたら、CSVの編集
+インポートボタンの上の「ファイルボタン」を押して、保留にしていたCSVをセレクトして下さい。<br>
 Inportのボタンを押すことで、CSVのデータが反映されます。<br>
 上記手順以外のCSVデーターを使用の場合は、上記画像のCSV例を参考にデーターを入れていただけると、インポートされます。
 
