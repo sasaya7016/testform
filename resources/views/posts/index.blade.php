@@ -100,8 +100,9 @@
       @endforeach
     </tbody>
   </table>
-  <h5>CSVインポート</h5>
+  <h5>CSV インポート</h5>
   {{ Form::open(['url' => route('posts.importCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
+
   <div class='form-group'>
     <input type="file" name="file" value="">
   </div>
@@ -109,4 +110,5 @@
   <button type="submit">Import</button>
 
   {{ Form::close() }}
+  
 </div>
