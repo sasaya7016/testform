@@ -19,13 +19,15 @@ http://testform-s.herokuapp.com/ <br>
 その後、Inportのボタンを押して下さい。<br>
 CSVのデータが反映されます。
 
-## :computer:開発環境
-- PHP
-- MAMP
-- Laravel
-- phpmyAdmin
+## :computer:使用技術
+### 使用言語
+- PHP:7.2
+- Laravel:6.0
+- HTML/CSS
 
-## :computer:本番環境
+### 環境
+- MAMP
+- phpmyAdmin
 - Heroku
 - postgres
 
