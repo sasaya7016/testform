@@ -11,7 +11,6 @@
         "php": "^7.2",
         "barryvdh/laravel-debugbar": "^3.3",
         "fideloper/proxy": "^4.0",
-        "goodby/csv": "*",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.1",
