@@ -3,70 +3,84 @@
 @section('content')
 @include('nav')
 
+
 <div class="container">
-  <br><br><br>
+  <br><br>
+  @include('error')
 
-  @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
-
-  <form method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
-    @csrf
-    <div class="card text-center">
-
+  <div class="row" style="margin:0 auto">
+    <div class="card text-center" style="width: 70%;">
       <div class="card-header">
         新規登録
       </div>
-      <div class="card-body row">
-        <div class="form-group text-center font-weight-bold">
-
-        </div>
-
-        <div class="form-group text-center font-weight-bold">
-          <label>氏名</label>
-          <p class="badge badge-danger">必須</p>
+      <div class="card-body">
+        <form method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
+          @csrf
           <div class="form-row">
             <div class="col">
-              <input class="form-control" name="lastname" placeholder="苗字を入力（文字制限：10）">
+              <label>苗字</label>
+              <p class="badge badge-danger">必須</p>
+              <input name="lastname" class="form-control" placeholder="Lastname max:10">
             </div>
             <div class="col">
-              <input class="form-control" name="firstname" placeholder="名前を入力（文字制限：10）">
+              <label>名前</label>
+              <p class="badge badge-danger">必須</p>
+              <input name="firstname" class="form-control" placeholder="Firstname max:10">
+            </div>
+            <div class="col-6">
+              <label>メールアドレス</label>
+              <p class="badge badge-danger">必須</p>
+              <input name="email" class="form-control" placeholder="E-mail max:50" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+          </div><br>
+
+          <div class="form-row">
+            <div class="col">
+              <label>コメント</label>
+              <p class="badge badge-success">任意</p>
+              <textarea class="form-control" name="text" placeholder="Text max:100"></textarea>
+            </div>
+          </div><br>
+
+          <div class="form-row">
+            <div class="col">
+              <button type="submit" class="btn btn-info btn-block">送信</button>
             </div>
           </div>
-        </div>
-
-        <div class="form-group text-center font-weight-bold">
-          <label>メールアドレス</label>
-          <p class="badge badge-danger">必須</p>
-          <div class="col">
-            <input class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </div>
-        </div>
-
-        <div class="form-group text-center font-weight-bold">
-          <label>コメント</label>
-          <p class="badge badge-success">任意</p>
-          <div class="col">
-            <textarea class="form-control" name="text" placeholder=""></textarea>
-          </div>
-        </div>
-
-        <div class=" text-center ">
-          <button type="submit" class="btn btn-info btn-block">送信</button>
-        </div>
+        </form>
       </div>
     </div>
-  </form>
-  <br><hr>
+
+    <div class="card text-center" style="width: 30%;">
+      <div class="card-header">
+        CSV
+      </div>
+      <div class="card-body">
+        <h5>CSV インポート</h5>
+        ↓Importする前にFile入れて下さい
+        {{ Form::open(['url' => route('posts.importCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
+        <div class='form-group'>
+          <input type="file" name="file" value="">
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Import</button>
+        {{ Form::close() }}
+
+        <hr>
+
+        <h5>CSV エクスポート</h5>
+        <br>
+        {{ Form::open(['url' => route('posts.exportCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
+        <button type="submit" class="btn btn-primary btn-block">Export</button>
+        {{ Form::close() }}
+      </div>
+    </div>
+ </div>
+
+  <br>
 
   <table class="table table-bordered table-sm">
     <thead class="thead-dark text-center">
+      <h5>表示</h5>
       <tr>
         <th scope="col">id</th>
         <th scope="col">苗字</th>
@@ -99,16 +113,4 @@
       @endforeach
     </tbody>
   </table>
-  <h5>CSV インポート</h5>
-  {{ Form::open(['url' => route('posts.importCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
-  <div class='form-group'>
-    <input type="file" name="file" value="">
-  </div>
-  <button type="submit">Import</button>
-  {{ Form::close() }}
-
-  <h5>CSV エクスポート</h5>
-  {{ Form::open(['url' => route('posts.exportCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
-  <button type="submit">Export</button>
-  {{ Form::close() }}
 </div>

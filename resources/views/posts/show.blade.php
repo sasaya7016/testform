@@ -32,6 +32,4 @@
     </div>
   </form>
   <a href="{{ url('posts/index') }}">戻る</a>
-
-  
 </div>
