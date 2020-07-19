@@ -24,3 +24,6 @@ Route::group(['prefix' => 'posts'], function(){
   // Route::get('edit/{id}', 'PostController@edit')->name('posts.edit');
   // Route::post('destroy/{id}', 'PostController@destroy')->name('posts.destroy');
 });
+
+Route::post('/posts/csv', "PostController@importCSV")->name('posts.importCSV');
+ 

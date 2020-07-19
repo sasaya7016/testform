@@ -7,6 +7,10 @@ use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StorePost;
 
+use League\Csv\Reader;
+use League\Csv\Statement;
+
+
 class PostController extends Controller
 {
     /**
@@ -108,5 +112,25 @@ class PostController extends Controller
         $post = Post::find($id);
         $post = delete();
         return redirect('posts/index');
+    }
+
+
+    public function importCSV(Request $request, Statement $stmt, Post $post)
+    {
+        $file_path = $request->file('file')->getPathname();
+       
+        $csv = Reader::createFromPath($file_path, 'r')->setHeaderOffset(0);
+        $records = $stmt->process($csv);
+        $data = [];
+
+
+        foreach ($records as $record) {
+            $record['created_at'] = now();
+            $record['updated_at'] = now();
+            $data[] = $record;
+        }
+        $post->insert($data);
+
+        return redirect()->route('posts.index');
     }
 }

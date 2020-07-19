@@ -100,8 +100,6 @@
       @endforeach
     </tbody>
   </table>
-<<<<<<< Updated upstream
-=======
   <h5>CSV インポート</h5>
   {{ Form::open(['url' => route('posts.importCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
 
@@ -112,5 +110,5 @@
   <button type="submit">Import</button>
 
   {{ Form::close() }}
->>>>>>> Stashed changes
+  
 </div>
