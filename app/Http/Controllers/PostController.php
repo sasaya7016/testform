@@ -144,7 +144,7 @@ class PostController extends Controller
     {
         $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
 
-        $csv->insertOne(['id', '苗字', '名前', 'メールアドレス','コメント']);
+        $csv->insertOne(['id', 'lastname', 'firstname', 'email','text','created_at','update_at']);
 
         Post::all()->each(function($post) use($csv) {
             $csv->insertOne($post->toArray());
