@@ -74,7 +74,7 @@
         {{ Form::close() }}
       </div>
     </div>
- </div>
+  </div>
 
   <br>
 
@@ -102,11 +102,10 @@
             Action
           </button>
           <div class="dropdown-menu">
-
             <a class="dropdown-item" href="{{ url('posts/show', ['id' =>$post->id]) }}">詳細</a>
-            <a class="dropdown-item" href="#">編集</a>
+            <a class="dropdown-item" href="{{ url('posts/edit', ['id' =>$post->id]) }}">編集</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">削除</a>
+            <a class="dropdown-item" href="{{ url('posts/destroy', ['id' =>$post->id])}}" >削除</a>
           </div>
         </td>
       </tr>

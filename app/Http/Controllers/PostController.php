@@ -78,6 +78,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $posts = DB::table('posts')
+        ->select('id', 'lastname', 'firstname','text', 'email')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
         $post = Post::find($id);
 
         return view('posts.edit', compact('post'));
@@ -111,7 +116,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        $post = delete();
+        $post->delete();
         return redirect('posts/index');
     }
 

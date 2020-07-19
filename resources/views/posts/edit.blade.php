@@ -1,84 +1,76 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'testform') }}</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  </head>
+@extends('app')
 
-  <body>
-  <div class="container">
-    <h4 class="text-center font-weight-bold">フォーム</h4>
+@section('content')
+@include('nav')
 
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
+<div class="container">
+  <br><br>
+  @include('error')
+
+  <div class="row" style="margin:0 auto">
+    <div class="card text-center" style="width: 70%;">
+      <div class="card-header">
+        編集画面
       </div>
-    @endif
-
-    <form method="POST" enctype="multipart/form-data" action="{{route('posts.update')}}">
-      @csrf
-      <div class="card text-center">
-        <div class="card-header">
-          新規登録
-        </div>
-        <div class="card-body">
-
-          <div class="form-group text-center font-weight-bold">
-            <label>氏名</label>
-            <p class="badge badge-danger">必須</p>
-            <div class="form-row">
-              <div class="col">
-                <input class="form-control" name="lastname" value="{{ $post->lastname }}" placeholder="苗字">
-              </div>
-              <div class="col">
-                <input class="form-control" name="firstname" value="{{ $post->firstname }}"  placeholder="名前">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group text-center font-weight-bold">
-            <label>メールアドレス</label>
-            <p class="badge badge-danger">必須</p>
+      <div class="card-body">
+        <form method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
+          @csrf
+          <div class="form-row">
             <div class="col">
-              <input class="form-control" name="email" value="{{ $post->email }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label>苗字</label>
+              <p class="badge badge-danger">必須</p>
+              <input name="lastname" class="form-control" placeholder="Lastname max:10" value="{{$post->lastname}}">
             </div>
-          </div>
-
-          <div class="form-group text-center font-weight-bold">
-            <label>コメント</label>
-            <p class="badge badge-success">任意</p>
             <div class="col">
-              <textarea class="form-control" name="text" value="{{ $post->text }}" placeholder=""></textarea>
+              <label>名前</label>
+              <p class="badge badge-danger">必須</p>
+              <input name="firstname" class="form-control" placeholder="Firstname max:10" value="{{$post->firstname}}">
+            </div>
+            <div class="col-6">
+              <label>メールアドレス</label>
+              <p class="badge badge-danger">必須</p>
+              <input name="email" class="form-control" placeholder="E-mail max:50" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$post->email}}">
+            </div>
+          </div><br>
+
+          <div class="form-row">
+            <div class="col">
+              <label>コメント</label>
+              <p class="badge badge-success">任意</p>
+              <textarea class="form-control" name="text" placeholder="Text max:100" value="{{$post->text}}"></textarea>
+            </div>
+          </div><br>
+
+          <div class="form-row">
+            <div class="col">
+              <button type="submit" class="btn btn-info btn-block">更新</button>
             </div>
           </div>
-
-          <div class="col text-center ">
-            <button type="submit" class="btn btn-info btn-lg btn-block">送信</button>
-          </div>
-        </div>
+        </form>
       </div>
-    </form>
-    <br><hr><br>
-
-   
+    </div>
+    <div class="card text-center" style="width: 30%;">
+      <div class="card-header">
+        説明
+      </div>
+      <div class="card-body">
+        <br><hr>
+        メールアドレスは、一度別のアドレスに変更して下さい。
+        <hr>
+        左記内容編集したら、更新ボタン押して下さい
+        <hr>
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Action
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{ url('/') }}">戻る</a>
+          <a class="dropdown-item" href="{{ url('posts/show', ['id' =>$post->id]) }}">詳細</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url('posts/destroy', ['id' =>$post->id])}}" >削除</a>
+        </div>
+    </div>
   </div>
+</div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-
-  </body>
-</html>
+  
+ 
