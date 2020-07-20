@@ -27,7 +27,8 @@ CSVファイルのメールアドレスを修正するか、Formに入力した�
 (例)インポートするCSVデータ:page_facing_up:<br>
 <img width="431" alt="testform-2" src="https://user-images.githubusercontent.com/61730661/87886901-790dbe80-ca5b-11ea-9326-7f81e80e9d1c.png">
 
-お手数ですが、上記CSVファイルの内容でしたら、インポートすることができます。<br>
+お手数ですが、上記CSVファイルの内容でしたら、列の削除がされており、<br>
+メールアドレスの一致がなければ、インポートすることができます。<br>
 インポート用のファイルにて、CSVデータをセレクトして下さい。<br>
 その後、Importのボタンを押して下さい。<br>
 CSVのデータが反映されます。<br><br>
