@@ -23,7 +23,6 @@ Route::group(['prefix' => 'posts'], function(){
   Route::get('show/{id}', 'PostController@show')->name('posts.show');
   Route::get('edit/{id}', 'PostController@edit')->name('posts.edit');
   Route::get('destroy/{id}', 'PostController@destroy')->name('posts.destroy');
-
-  Route::post('csv', "PostController@importCSV")->name('posts.importCSV');
-  Route::post('export', "PostController@exportCSV")->name('posts.exportCSV');
+  Route::post('import', "PostController@import")->name('posts.import');
+  Route::post('export', "PostController@export")->name('posts.export');
 });
