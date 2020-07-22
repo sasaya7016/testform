@@ -41,11 +41,15 @@ CSVのデータが反映されます。<br><br>
 - Laravel:6.0
 - HTML/CSS
 
+### ライブラリ
+- League/Csv
+
 ### 環境
 - MAMP
 - phpmyAdmin
 - Heroku
 - postgres
+
 
 ## :ballot_box_with_check: 条件
 
