@@ -58,7 +58,7 @@
       <div class="card-body">
         <h5>CSV インポート</h5>
         ↓Importする前にFile入れて下さい
-        {{ Form::open(['url' => route('posts.importCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
+        {{ Form::open(['url' => route('posts.import'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
         <div class='form-group'>
           <input type="file" name="file" value="">
         </div>
@@ -69,7 +69,7 @@
 
         <h5>CSV エクスポート</h5>
         <br>
-        {{ Form::open(['url' => route('posts.exportCSV'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
+        {{ Form::open(['url' => route('posts.export'), 'method' => 'POST', 'class' => '', 'files' => true]) }}
         <button type="submit" class="btn btn-primary btn-block">Export</button>
         {{ Form::close() }}
       </div>
