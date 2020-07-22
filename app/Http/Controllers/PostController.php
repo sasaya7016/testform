@@ -122,7 +122,7 @@ class PostController extends Controller
 
 
     public function import(Request $request, Statement $stmt, Post $post)
-    {   
+    {
         $file_path = $request->file('file')->getPathname();
        
         $csv = Reader::createFromPath($file_path, 'r')->setHeaderOffset(0);
