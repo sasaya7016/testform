@@ -121,8 +121,8 @@ class PostController extends Controller
     }
 
 
-    public function importCSV(Request $request, Statement $stmt, Post $post)
-    {
+    public function import(Request $request, Statement $stmt, Post $post)
+    {   
         $file_path = $request->file('file')->getPathname();
        
         $csv = Reader::createFromPath($file_path, 'r')->setHeaderOffset(0);
@@ -140,7 +140,7 @@ class PostController extends Controller
     }
 
 
-    public function exportCSV()
+    public function export()
     {
         $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
 
