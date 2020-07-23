@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         $posts = DB::table('posts')
         ->select('id', 'lastname', 'firstname','text', 'email')
-        ->orderBy('created_at', 'desc')
+        ->orderBy('id', 'desc')
         ->get();
 
         return view('posts.index', compact('posts'));
