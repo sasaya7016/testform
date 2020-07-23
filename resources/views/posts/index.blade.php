@@ -30,7 +30,7 @@
             <div class="col-6">
               <label>メールアドレス</label>
               <p class="badge badge-danger">必須</p>
-              <input name="email" class="form-control" placeholder="E-mail max:50" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input name="email" class="form-control" placeholder="E-mail max:50" >
             </div>
           </div><br>
 
