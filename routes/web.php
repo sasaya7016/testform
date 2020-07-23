@@ -22,6 +22,7 @@ Route::group(['prefix' => 'posts'], function(){
   Route::post('store', 'PostController@store')->name('posts.store');
   Route::get('show/{id}', 'PostController@show')->name('posts.show');
   Route::get('edit/{id}', 'PostController@edit')->name('posts.edit');
+  Route::post('update/{id}', 'PostController@update')->name('posts.update');
   Route::get('destroy/{id}', 'PostController@destroy')->name('posts.destroy');
   Route::post('import', "PostController@import")->name('posts.import');
   Route::post('export', "PostController@export")->name('posts.export');

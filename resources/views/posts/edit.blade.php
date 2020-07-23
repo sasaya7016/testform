@@ -13,7 +13,7 @@
         編集画面
       </div>
       <div class="card-body">
-        <form method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
+        <form method="POST" enctype="multipart/form-data" action="{{route('posts.update', ['id' =>$post->id]) }}">
           @csrf
           <div class="form-row">
             <div class="col">
@@ -29,7 +29,7 @@
             <div class="col-6">
               <label>メールアドレス</label>
               <p class="badge badge-danger">必須</p>
-              <input name="email" class="form-control" placeholder="E-mail max:50" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$post->email}}">
+              <input name="email" class="form-control" placeholder="E-mail max:50"  value="{{$post->email}}">
             </div>
           </div><br>
 
