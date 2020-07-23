@@ -26,8 +26,8 @@ class StorePost extends FormRequest
         return [
             'lastname' => 'required|string|max:10|regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んー一-龠]+$/u',
             'firstname' => 'required|string|max:10|regex:/^[a-zA-Z0-9ａ-ｚA-Zぁ-んー一-龠]+$/u',
-            'email' => 'required|email|unique:posts|max:100',
-            'text' => 'max:200',
+            'email' => 'required|email|unique:posts|max:50',
+            'text' => 'max:100',
         ];
     }
 }
